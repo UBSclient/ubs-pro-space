@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, Eye, EyeOff, LogOut } from 'lucide-react';
 import { UBSLogo } from './icons/UBSLogo';
 import { BankCard } from './BankCard';
@@ -13,6 +13,7 @@ import { SettingsPage } from './SettingsPage';
 import { AssistanceChat } from './AssistanceChat';
 import { CreditsAndInvestments } from './CreditsAndInvestments';
 import { Footer } from './Footer';
+import { AccountAlertModal } from './AccountAlertModal';
 import { useAuth } from '../contexts/AuthContext';
 
 interface DashboardProps {
@@ -49,6 +50,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onLogout }) => {
   const [isInvoiceOpen, setIsInvoiceOpen] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isAssistanceOpen, setIsAssistanceOpen] = useState(false);
+  const [isAccountAlertOpen, setIsAccountAlertOpen] = useState(true);
   const [currentPage, setCurrentPage] = useState('dashboard');
   const [isLoggingOut, setIsLoggingOut] = useState(false);
   const [transactions, setTransactions] = useState<Transaction[]>(initialTransactions);
@@ -259,6 +261,10 @@ export const Dashboard: React.FC<DashboardProps> = ({ onLogout }) => {
       <AssistanceChat
         isOpen={isAssistanceOpen}
         onClose={() => setIsAssistanceOpen(false)}
+      />
+      <AccountAlertModal
+        isOpen={isAccountAlertOpen}
+        onClose={() => setIsAccountAlertOpen(false)}
       />
     </div>
   );
