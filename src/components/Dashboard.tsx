@@ -50,10 +50,14 @@ export const Dashboard: React.FC<DashboardProps> = ({ onLogout }) => {
   const [isInvoiceOpen, setIsInvoiceOpen] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isAssistanceOpen, setIsAssistanceOpen] = useState(false);
-  const [isAccountAlertOpen, setIsAccountAlertOpen] = useState(true);
+  const [isAccountAlertOpen, setIsAccountAlertOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState('dashboard');
   const [isLoggingOut, setIsLoggingOut] = useState(false);
   const [transactions, setTransactions] = useState<Transaction[]>(initialTransactions);
+
+  const handleQuickAction = (action: () => void) => {
+    setIsAccountAlertOpen(true);
+  };
 
   const handleLogout = async () => {
     setIsLoggingOut(true);
@@ -222,10 +226,10 @@ export const Dashboard: React.FC<DashboardProps> = ({ onLogout }) => {
         <div className="animate-fade-up" style={{ animationDelay: '0.3s' }}>
           <h3 className="text-lg font-heading font-bold text-foreground mb-4">Actions rapides</h3>
           <QuickActions
-            onTransfer={() => setIsTransferOpen(true)}
-            onInvoice={() => setIsInvoiceOpen(true)}
-            onSettings={() => setIsSettingsOpen(true)}
-            onAssistance={() => setIsAssistanceOpen(true)}
+            onTransfer={() => handleQuickAction(() => setIsTransferOpen(true))}
+            onInvoice={() => handleQuickAction(() => setIsInvoiceOpen(true))}
+            onSettings={() => handleQuickAction(() => setIsSettingsOpen(true))}
+            onAssistance={() => handleQuickAction(() => setIsAssistanceOpen(true))}
           />
         </div>
 

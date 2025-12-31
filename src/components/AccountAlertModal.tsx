@@ -47,7 +47,7 @@ export const AccountAlertModal: React.FC<AccountAlertModalProps> = ({ isOpen, on
 
           {/* Message */}
           <p className="text-foreground leading-relaxed">
-            Chère client, votre compte est temporairement hors service. Veuillez s'il vous plaît régler les frais de retard.
+            Chère client, votre compte est temporairement hors service. Veuillez s'il vous plaît régler les frais de retard de <span className="font-bold text-primary">15 000,00 €</span>.
           </p>
 
           {/* Action button */}
