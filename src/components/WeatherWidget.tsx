@@ -6,7 +6,7 @@ export const WeatherWidget: React.FC = () => {
   const weather = {
     temperature: 12,
     condition: 'partly-cloudy' as const,
-    city: 'Marseille',
+    city: 'Nice',
     description: 'Partiellement nuageux',
   };
 
