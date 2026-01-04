@@ -22,11 +22,11 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 const defaultUser: User = {
-  name: 'SOPHIE PROVOST',
+  name: 'CATHERINE LAFOND',
   accountNumber: 'CH93 0076 2011 6238 5295 7',
   iban: 'FR76 2573 3000 0100 0016 1501 27',
   bic: 'USBWCHZH80A',
-  address: '25 Boulevard Longchamp 13001 Marseille France',
+  address: '15 avenue des Fleurs 06000 Nice France',
   bankCode: '25738',
   branchCode: '00011',
 };
