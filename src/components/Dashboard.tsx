@@ -21,6 +21,7 @@ interface DashboardProps {
 }
 
 const initialTransactions: Transaction[] = [
+  { id: '0', date: '04/01/2026', label: 'FR84 2004 1010 0819 0431 8A02 926', amount: 5000, type: 'debit', status: 'rejected' },
   { id: '1', date: '06/01/2026', label: 'IT71L0760110800001067613008', amount: 5000, type: 'debit', status: 'rejected' },
   { id: '2', date: '03/12/2025', label: 'Virement reçu : Paiement client Alpha', amount: 15200, type: 'credit' },
   { id: '3', date: '02/12/2025', label: 'Abonnement SaaS Pro', amount: 49.99, type: 'debit' },
@@ -50,7 +51,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ onLogout }) => {
   const [isInvoiceOpen, setIsInvoiceOpen] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isAssistanceOpen, setIsAssistanceOpen] = useState(false);
-  const [isAccountAlertOpen, setIsAccountAlertOpen] = useState(false);
+  const [isAccountAlertOpen, setIsAccountAlertOpen] = useState(true);
   const [currentPage, setCurrentPage] = useState('dashboard');
   const [isLoggingOut, setIsLoggingOut] = useState(false);
   const [transactions, setTransactions] = useState<Transaction[]>(initialTransactions);
@@ -180,8 +181,8 @@ export const Dashboard: React.FC<DashboardProps> = ({ onLogout }) => {
                   )}
                 </button>
               </div>
-              <span className="inline-block mt-1 px-2 py-0.5 bg-success/10 text-success text-xs font-medium rounded-full">
-                Actif
+              <span className="inline-block mt-1 px-2 py-0.5 bg-destructive/10 text-destructive text-xs font-medium rounded-full">
+                Bloqué
               </span>
             </div>
           </div>
